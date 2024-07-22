@@ -1,5 +1,6 @@
 #include "threadPool.h"
 
+// 可以根据需求修改任务函数
 void* taskFunc(void* arg){
     int num = *(int*)arg;
     std::cout << std::this_thread::get_id() << " is working, number = " << num << std::endl;
@@ -18,12 +19,12 @@ void* taskFunc2(void* arg){
 
 int main(){
     std::function<void*(void*)>func = taskFunc;
-    std::shared_ptr<ThreadPool> pool = std::make_shared<ThreadPool>(5, 12);
+    std::shared_ptr<ThreadPool> pool = std::make_shared<ThreadPool>(5, 12); // 创建线程池
     std::cout << "-------" << std::endl;
     for(int i = 0; i < 100; i++){
         int* arg = new int(i + 100);
         Task t(taskFunc, arg);
-        pool->addTask(t);
+        pool->addTask(t); // 添加任务
     }
 
     for(int i = 0; i < 100; i++){
