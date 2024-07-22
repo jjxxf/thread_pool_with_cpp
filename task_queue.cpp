@@ -23,7 +23,7 @@ bool TaskQ::addTask(Task &t){
 bool TaskQ::getTask(Task &t){
 
     std::lock_guard<std::mutex> mtx_guard(mtx_);
-    if(task_queue_.empty()){ // 判断一下是否为空
+    if(task_queue_.empty()){ // 判断是否为空
         return false;
     }        
 
