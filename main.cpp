@@ -24,7 +24,7 @@ int main(){
     for(int i = 0; i < 100; i++){
         int* arg = new int(i + 100);
         Task t(taskFunc, arg);
-        pool->addTask(t); // 添加任务
+        pool->addTask(t); // 添加任务 
     }
 
     for(int i = 0; i < 100; i++){
