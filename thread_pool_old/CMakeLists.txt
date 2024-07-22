@@ -13,6 +13,7 @@ SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 
 add_executable(${PROJECT_NAME}
 main.cpp 
+task_queue.cpp
 threadPool.cpp) # 生成可执行文件，这里程序名即为功能名
 
 target_link_libraries(${PROJECT_NAME} pthread) # 链接库
